@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked Bars Vector - Part 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="workspace">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h2>Chart Controls</h2>
+            
+            <div class="control-section">
+                <h3>Layout</h3>
+                <div class="control-row">
+                    <label>Font Scale</label>
+                    <input type="range" id="fontScale" min="0.5" max="2" step="0.1">
+                    <span id="fontScaleValue" class="value">1.0x</span>
+                </div>
+                <div class="control-row">
+                    <label>Padding</label>
+                    <input type="range" id="padding" min="5" max="30" step="1">
+                    <span id="paddingValue" class="value">15px</span>
+                </div>
+                <div class="control-row">
+                    <label>Line Height</label>
+                    <input type="range" id="lineHeight" min="1" max="2" step="0.1">
+                    <span id="lineHeightValue" class="value">1.3</span>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3>Chart</h3>
+                <div class="control-row">
+                    <label>Bar Height</label>
+                    <input type="range" id="barHeight" min="15" max="40" step="1">
+                    <span id="barHeightValue" class="value">25px</span>
+                </div>
+                <div class="control-row">
+                    <label>Bar Spacing</label>
+                    <input type="range" id="barSpacing" min="2" max="15" step="1">
+                    <span id="barSpacingValue" class="value">5px</span>
+                </div>
+                <div class="control-row">
+                    <label>Column Width</label>
+                    <input type="range" id="columnWidth" min="40" max="100" step="1">
+                    <span id="columnWidthValue" class="value">70px</span>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3>Presets</h3>
+                <button class="btn-primary" onclick="applyPreset('compact')">Compact</button>
+                <button class="btn-primary" onclick="applyPreset('spacious')">Spacious</button>
+                <button class="btn-primary" onclick="applyPreset('minimal')">Minimal</button>
+            </div>
+
+            <div class="control-section">
+                <h3>Actions</h3>
+                <button class="btn-secondary" onclick="randomizeData()">Randomize Data</button>
+                <button class="btn-secondary" onclick="toggleDebugMode()">Toggle Debug</button>
+                <button class="btn-danger" onclick="generatePDF()">Generate PDF</button>
+            </div>
+        </div>
+
+        <!-- PDF Container -->
+        <div class="pdf-container">
+            <div id="page1" class="pdf-page">
+                <div class="page-header">Page 1</div>
+                <div class="page-title">
+                    <h1>Cultural Diversity Assessment</h1>
+                    <h2>Organization Overview</h2>
+                </div>
+                
+                <div class="content-area">
+                    <!-- Left Column -->
+                    <div class="column">
+                        <div id="leadership-slot" class="chart-slot">
+                            <div id="leadership-container" class="chart-container"></div>
+                        </div>
+                        <div id="strategy-slot" class="chart-slot">
+                            <div id="strategy-container" class="chart-container"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column -->
+                    <div class="column">
+                        <div id="hr-slot" class="chart-slot">
+                            <div id="hr-container" class="chart-container"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="colophon">
+                    <div class="colophon-title">Cultural Diversity Assessment Tool</div>
+                    <div class="colophon-text">
+                        This assessment provides insights into your organization's cultural diversity practices and policies.
+                    </div>
+                    <div class="colophon-divider"></div>
+                    <div class="colophon-text">
+                        Generated on: <span id="generation-date"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page2" class="pdf-page">
+                <div class="page-header">Page 2</div>
+                <div class="page-title">
+                    <h1>Cultural Diversity Assessment</h1>
+                    <h2>Detailed Analysis</h2>
+                </div>
+                
+                <div class="content-area">
+                    <!-- Left Column -->
+                    <div class="column">
+                        <div id="communication-slot" class="chart-slot">
+                            <div id="communication-container" class="chart-container"></div>
+                        </div>
+                        <div id="knowledge-slot" class="chart-slot">
+                            <div id="knowledge-container" class="chart-container"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column -->
+                    <div class="column">
+                        <div id="climate-slot" class="chart-slot">
+                            <div id="climate-container" class="chart-container"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="colophon">
+                    <div class="colophon-title">Cultural Diversity Assessment Tool</div>
+                    <div class="colophon-text">
+                        This assessment provides insights into your organization's cultural diversity practices and policies.
+                    </div>
+                    <div class="colophon-divider"></div>
+                    <div class="colophon-text">
+                        Generated on: <span id="generation-date-2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="chart.js"></script>
+    <script src="controls.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 

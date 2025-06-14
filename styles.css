@@ -1,0 +1,302 @@
+/* Styles for Stacked Bars Vector */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f0f0;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.workspace {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    min-width: 1200px;
+}
+
+/* FIXED PDF CONTAINER - Non-responsive */
+.pdf-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pdf-page {
+    width: 842px;  /* A4 landscape width */
+    height: 595px; /* A4 landscape height */
+    background: white;
+    border: 2px solid #333;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Page elements - fixed positions */
+.page-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    font-size: 24px;
+    color: #999;
+    font-weight: 400;
+}
+
+.page-title {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+}
+
+.page-title h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #002060;
+    margin: 0 0 5px 0;
+}
+
+.page-title h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+    margin: 0;
+}
+
+/* Fixed layout zones */
+.content-area {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Chart slots - ALL adapt to content, NONE fill space */
+.chart-slot {
+    background: #fafafa;
+    border: 1px dashed #ccc;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* ALL slots size to content */
+    flex: 0 0 auto;
+    min-height: 80px; /* Minimum viable height */
+}
+
+/* Chart container within slot */
+.chart-container {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+}
+
+.chart-container svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Dividers - consistent styling */
+.vertical-divider {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background-color: #d0d0d0;
+    top: 120px;
+    bottom: 20px;
+}
+
+.horizontal-divider {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: #d0d0d0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Stack dividers - horizontal lines between stacked charts */
+.stack-divider {
+    height: 1px;
+    background-color: #d0d0d0 !important;
+    margin: 5px 0;
+    flex: 0 0 auto;
+    border: none;
+    opacity: 1;
+    min-height: 1px;
+    max-height: 1px;
+}
+
+/* Colophon */
+.colophon {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: #f8f8f8;
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-size: 9px;
+    color: #666;
+    width: 250px;
+}
+
+.colophon-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.colophon-text {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.colophon-divider {
+    border-top: 1px solid #ddd;
+    margin: 8px 0;
+    padding-top: 8px;
+}
+
+/* Control Panel */
+.control-panel {
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 20px;
+}
+
+.control-panel h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+}
+
+.control-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 6px;
+}
+
+.control-section h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.control-row label {
+    font-size: 12px;
+    color: #666;
+    flex: 1;
+}
+
+.control-row input[type="range"] {
+    flex: 2;
+    margin: 0 10px;
+}
+
+.control-row .value {
+    font-size: 11px;
+    font-weight: bold;
+    color: #1976D2;
+    min-width: 40px;
+    text-align: right;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-primary { background: #4CAF50; color: white; }
+.btn-secondary { background: #2196F3; color: white; }
+.btn-danger { background: #f44336; color: white; }
+
+button:hover { opacity: 0.9; }
+
+/* SVG Styles */
+.svg-text {
+    font-family: 'Montserrat', sans-serif;
+    fill: #595959;
+}
+
+.svg-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    fill: #076c97;
+}
+
+.svg-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    fill: #9cc2e4;
+    text-anchor: middle;
+}
+
+.brick1 { fill: #cee7da; }
+.brick2 { fill: #6cc6cd; }
+.brick3 { fill: #166e99; }
+.brick4 { fill: #182d57; }
+
+.grid-line { stroke: #D0D0D0; }
+.divider-line { stroke: #D0D0D0; }
+
+/* Debug mode */
+.debug .chart-slot {
+    background: rgba(255, 0, 0, 0.1);
+    border: 2px solid red;
+}
+
+.debug .pdf-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(to right, transparent 40px, rgba(0,255,0,0.3) 40px, rgba(0,255,0,0.3) 42px, transparent 42px),
+        linear-gradient(to right, transparent 800px, rgba(0,255,0,0.3) 800px, rgba(0,255,0,0.3) 802px, transparent 802px);
+    pointer-events: none;
+} 
